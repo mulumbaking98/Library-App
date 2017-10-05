@@ -91,7 +91,6 @@ public class Patron
 //		if (b instanceof Book && isBlank(b)) {
 			 b.setOutTo(this);
 		     copiesOut.add(b);
-//		     System.out.println(this.toString());
 		     System.out.println(b.toString());
 					
 				   return true;
@@ -107,7 +106,6 @@ public class Patron
 		    	b.setOutTo(new Patron(null, null));
 			
 			copiesOut.remove(b);
-//			System.out.println(this.toString());
 			System.out.println(b.toString());
 			
 			return true;
