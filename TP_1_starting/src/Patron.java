@@ -156,7 +156,7 @@ public class Patron
 		System.out.println("              Please Select From The Following Options:               ");
 		System.out.println("**********************************************************************");
 		
-		while(choice != 8)
+		while(choice != 6)
 		{
 
 			System.out.println("1: Display all books");
