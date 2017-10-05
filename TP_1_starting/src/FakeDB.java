@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class FakeDB
 {
@@ -25,6 +26,27 @@ public class FakeDB
 	{
 		return copyStore.get(copyID);
 	}
+	
+	public static  void displayAllBooks(){
+		for (Entry<String, Copy> entry : copyStore.entrySet()) {
+		    String key = entry.getKey();
+		    Object value = entry.getValue();
+		   
+		    System.out.println(entry.getKey() + ": " + entry.getValue());
+
+		    // ...
+		}
+	}//end display all books
+	
+	public static void displayAllPatrons() {
+		for (Entry<String, Patron> entry : patronStore.entrySet()) {
+		    String key = entry.getKey();
+		    Object value = entry.getValue();
+		    System.out.println(entry.getKey() + ": " + entry.getValue());
+
+		}
+		
+	}//end display patrons
 
 	public static void main(String[] args)
 	{
