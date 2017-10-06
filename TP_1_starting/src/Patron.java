@@ -187,6 +187,7 @@ public class Patron
 			   StdOut.println("********************************************");
 			   StdOut.println();
 			     p1.checkBookOut(c2);
+			     p1.checkBookOut(c1);
 			     StdOut.println();
 			     StdOut.println("********************************************");
 			   
@@ -194,6 +195,7 @@ public class Patron
 		    case 4: //check in a book
 		    	StdOut.println("********************************************");
 		    	StdOut.println();
+		    	 p1.checkBookIn(c1);
 				 p1.checkBookIn(c2);
 				 StdOut.println();
 				 StdOut.println("********************************************");
