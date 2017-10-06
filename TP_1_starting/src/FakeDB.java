@@ -32,7 +32,7 @@ public class FakeDB
 		    String key = entry.getKey();
 		    Object value = entry.getValue();
 		   
-		    System.out.println(entry.getKey() + ": " + entry.getValue());
+		    StdOut.println(entry.getKey() + ": " + entry.getValue());
 
 		    // ...
 		}
@@ -42,7 +42,7 @@ public class FakeDB
 		for (Entry<String, Patron> entry : patronStore.entrySet()) {
 		    String key = entry.getKey();
 		    Object value = entry.getValue();
-		    System.out.println(entry.getKey() + ": " + entry.getValue());
+		    StdOut.println(entry.getKey() + ": " + entry.getValue());
 
 		}
 		
