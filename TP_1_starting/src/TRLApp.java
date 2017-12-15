@@ -1,160 +1,93 @@
-/**
- * 
- */
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 
 /**
  * @author maya5348
  *
  */
-public class TRLApp
-{
-	private static CopyStore cStore;
-	private static PatronStore pStore;
-	private static OutController outController;
-	private static InController inController;
+public class TRLApp {
+    public static  void main(String[] args) throws FileNotFoundException {
+        Controller.AddBooksAndPatrons();
+        System.out.println("Worker log in - Enter username and password of the worker separated by a space");
+        Scanner scanner = new Scanner(System.in);
+        String scannedLine = scanner.nextLine();
+        String[] splittedScannedLine = scannedLine.split(" ");
+        if(Controller.LogInWorker(splittedScannedLine[0], splittedScannedLine[1])){
+            Scanner userInput = new Scanner(System.in);
+            boolean run = true;
+            while (true){
+                System.out.println("Choose an option from below");
+                System.out.println();
+                System.out.println("1 - Check in book");
+                System.out.println("2 - Check out book");
+                System.out.println("3 - Add overdue hold on book");
+                System.out.println("4 - Remove hold on a book");
+                System.out.println("5 - Print holds on book");
+                System.out.println("6 - Show copies");
+                System.out.println("7 - Show patrons");
+                System.out.println("8 - Exit");
+                int choice = userInput.nextInt();
+                Scanner sc = new Scanner(System.in);
+                String line = "";
+                String[] splittedLine;
+                switch (choice){
+                    case 1:
+                        System.out.println("Enter barcode of the copy and the patron id separated by a space");
+                        line = sc.nextLine();
+                        splittedLine = line.split(" ");
+                        Controller.CheckIn(splittedLine[0], splittedLine[1]);
+                        break;
 
-	public static void main(String[] args)
-	{
-		
-		cStore = new CopyStore();
-		pStore = new PatronStore();
+                    case 2:
+                        System.out.println("Enter barcode of the copy and the patron id (separated by a space):");
+                        line = sc.nextLine();
+                        splittedLine = line.split(" ");
+                        Controller.CheckOut(splittedLine[0], splittedLine[1]);
+                        break;
 
-		outController = new OutController(pStore, cStore);
-		inController = new InController(pStore, cStore);
+                    case 3:
 
-		StdOut.println("Welcome to TRLApp.");
+                        System.out.println("Enter Fine, barcode, patron id separated by a space");
+                        line = sc.nextLine();
+                        splittedLine = line.split(" ");
+                        Controller.AddHold(splittedLine[0], splittedLine[1], splittedLine[2]);
+                        break;
 
-		boolean quitting = false;
+                    case 4:
+                        System.out.println("Enter barcode of the copy and the patron id separated by a space");
+                        line = sc.nextLine();
+                        splittedLine = line.split(" ");
+                        Controller.ClearHold(splittedLine[0], splittedLine[1]);
+                        break;
 
-		
-		while (!quitting)
-		{
-			printMenu();
-			String cmd = getCommand();
+                    case 5:
+                        Controller.PrintOverdue();
+                        break;
 
-			switch (cmd)
-			{
-			case "1":
-				doCheckOut();
-				break;
-			case "2":
-				doCheckIn();
-				break;
-			case "3":
-				doDisplayPatronInfo();
-				break;
-			case "0":
-				StdOut.println("exiting...");
-				quitting = true;
-				break;
-			}
-		}
-	}
+                    case 6:
+                        Controller.PrintCopies();
+                        break;
 
-	private static void doCheckOut()
-	{
-		StdOut.println("Checking copies out...");
-		StdOut.println("Enter Patron ID:");
-		String pid = StdIn.readString();
-		StdOut.println("You entered: " + pid);
+                    case 7:
+                        Controller.PrintPatrons();
+                        break;
 
-		boolean result = outController.startOutTransaction(); // pStore.fetchPatron(pid);
+                    case 8:
+                        run = false;
+                        break;
 
-		Patron p = outController.enterPatronForCheckOut(pid);
+                    default:
+                        System.out.println("Invalid choice");
+                }
 
-		StdOut.println("Checking out copies to patron: " + p);
+            }
+        }
 
-		while (true)
-		{
-			String copyID = getCopyID();
 
-			if (copyID.equals("0"))
-				break;
 
-			Copy c = null;
-
-			if (copyID != null)
-			{
-				c = outController.enterCopyGoingOut(copyID);
-				StdOut.println("Checking out copy: ");
-				StdOut.println(c);
-			}
-			else
-				StdOut.println("Bad copy: reenter:");
-
-		}
-
-		outController.endOutTransaction();
-
-		StdOut.println("End of doCheckOut()");
-	}
-
-	private static String getCopyID()
-	{
-		StdOut.println("Enter copyID to check out, 0 to finish:");
-		String copyID = StdIn.readString();
-		return copyID;
-	}
-
-	private static void doCheckIn()
-	{
-		StdOut.println("Checking copies in...");
-		StdOut.println("Enter Patron ID:");
-		String pid = StdIn.readString();
-
-		StdOut.println("You entered: " + pid);
-
-		boolean result = inController.startInTransaction(); // pStore.fetchPatron(pid);
-
-		Patron p = inController.enterPatronForCheckIn(pid);
-
-		StdOut.println("Checking in copies from patron: " + p);
-
-		while (true)
-		{
-			StdOut.println("Enter copyID to check in, 0 to finish:");
-			String copyID = StdIn.readString();
-			if (copyID.equals("0"))
-				break;
-
-			Copy c = inController.enterCopyGoingIn(copyID); // how to indicate
-															// copy is already
-															// checked out?
-
-			if (c != null)
-			{
-				StdOut.println("Checking in copy: ");
-				StdOut.println(c);
-			}
-			else
-				StdOut.println("Bad copy: reenter:");
-		}
-
-		inController.endInTransaction();
-
-		StdOut.println("End of doCheckIn()");
-	}
-
-	private static void doDisplayPatronInfo()
-	{
-		StdOut.println("Enter patron ID: ");
-		String pid = StdIn.readString();
-
-		Patron p = outController.getPatronInfo(pid);
-		StdOut.println(p);
-	}
-
-	private static void printMenu()
-	{
-		StdOut.println("Select an option:\n");
-		StdOut.println("1 => Start check out transaction");
-		StdOut.println("2 => Start check in transaction");
-		StdOut.println("3 => Display Patron Info");
-		StdOut.println("0 => Quit");
-	}
-
-	private static String getCommand()
-	{
-		return StdIn.readString();
-	}
+    }
 }
