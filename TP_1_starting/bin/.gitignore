@@ -9,3 +9,10 @@
 /OverDueNotice.class
 /TextBook.class
 /TRLApp.class
+/CopyTest.class
+/PatronTest.class
+/HoldTest.class
+/ControllerTest.class
+/TextBookTest.class
+/TestRunner.class
+/WorkerTest.class

@@ -12,8 +12,14 @@ public class Copy extends TextBook{
         Barcode = barcode;
         Status = status;
     }
+    
 
-    public String getBarcode() {
+    public Copy() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getBarcode() {
         return Barcode;
     }
 

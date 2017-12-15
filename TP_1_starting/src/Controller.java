@@ -11,6 +11,7 @@ public class Controller {
     public static ArrayList<Copy> Copies = new ArrayList();
     public static ArrayList<Patron> Patrons= new ArrayList();
     public static Worker Worker;
+    public static Log log;
 
     public static Copy getCopyById(String id){
         for(Copy c: Copies){

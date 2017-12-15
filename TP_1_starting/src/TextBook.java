@@ -6,6 +6,7 @@ public class TextBook {
     String Id;
     String Title;
 
+    public TextBook(){}
     public TextBook(String id, String title) {
         Id = id;
         Title = title;
