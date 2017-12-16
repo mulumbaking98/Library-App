@@ -62,51 +62,66 @@ public class GetDateDifference {
 	    }
 
 	
-	public static String getSeconds(String d1){
-		
-		String time ="";
-		
-		   Calendar cal1 = Calendar.getInstance();
-	        Calendar cal2 = Calendar.getInstance();
-	        
-	        // Set the date for both of the calendar instance
-	        StringTokenizer t = new StringTokenizer(d1,"/");
-	       // ("MM/dd/yyyy"); 
-	       
-	        int m = Integer.parseInt(t.nextToken().trim());
-	        int d = Integer.parseInt(t.nextToken().trim());
-	        int y = Integer.parseInt(t.nextToken().trim());
-	        
-	        // Get the represented date in milliseconds
-	        long milis1 = cal1.getTimeInMillis();
-	        
-	        // Calculate  seconds
-	        long Seconds = milis1 / 1000;
-	        
-	     // Calculate difference in minutes
-	        long Minutes = milis1/ (60 * 1000);
-	        
-	        // Calculate difference in hours
-	        long Hours = milis1/ (60 * 60 * 1000);
-	          
-	        
-	        return time =  Hours +": "+ Minutes +": " + Seconds;
-     
-	}//get seconds
+//	public static String getSeconds(String d1){
+//		
+//		String time ="";
+//		
+//		   Calendar cal1 = Calendar.getInstance();
+//	        Calendar cal2 = Calendar.getInstance();
+//	        
+//	        // Set the date for both of the calendar instance
+//	        StringTokenizer t = new StringTokenizer(d1,"/");
+//	       // ("MM/dd/yyyy"); 
+//	       
+//	        int m = Integer.parseInt(t.nextToken().trim());
+//	        int d = Integer.parseInt(t.nextToken().trim());
+//	        int y = Integer.parseInt(t.nextToken().trim());
+//	        
+//	        // Get the represented date in milliseconds
+//	        long milis1 = cal1.getTimeInMillis();
+//	        
+//	        // Calculate  seconds
+//	        long Seconds = milis1 / 1000;
+//	        
+//	     // Calculate difference in minutes
+//	        long Minutes = milis1/ (60 * 1000);
+//	        
+//	        // Calculate difference in hours
+//	        long Hours = milis1/ (60 * 60 * 1000);
+//	          
+//	        
+//	        return time =  Hours +" "+ Minutes +" " + Seconds;
+//     
+//	}//get seconds
 	
-	public static String getDate(){
-		 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-         Date dateobj = new Date();
-         //System.out.println(df.format(dateobj));
+//	public static String getDate(){
+//		 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+//         Date dateobj = new Date();
+//         //System.out.println(df.format(dateobj));
+//
+////         String issueDate = df.format(dateobj);
+//
+//         Calendar cal = Calendar.getInstance();
+//         Date todayDate = cal.getTime();
+//
+//         String todayDateS = df.format(todayDate);
+//         
+//         return todayDateS;
+//	}
+	
+	public static String getDate_Time(){
+		String todayDateAndTime = "";
+		 //getting current date and time using Date class
+	       DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+	       Date dateobj = new Date();
+	       System.out.println(df.format(dateobj));
 
-//         String issueDate = df.format(dateobj);
-
-         Calendar cal = Calendar.getInstance();
-         Date todayDate = cal.getTime();
-
-         String todayDateS = df.format(todayDate);
-         
-         return todayDateS;
+	       /*getting current date time using calendar class 
+	        * An Alternative of above*/
+	       Calendar calobj = Calendar.getInstance();
+	       
+        
+        return todayDateAndTime = df.format(calobj.getTime());
 	}
 	
 	

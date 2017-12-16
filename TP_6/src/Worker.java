@@ -45,10 +45,11 @@ public class Worker {
             c.Status = "OUT";
             p.CheckOutBook(c);
             c.DueDate = getDate();
-            System.out.println("Book is successfully checked out. Due date is - " + getDate());
+            System.out.println("Book is successfully checked out to: \n");
+            System.out.println("Patron:  " + p.getName() + "Due date is - " + getDate() +"\n");
         }else{
-            System.out.println("Sorry: This copy has already been checked out.....");
-            System.out.println("This copy is due back 0n: " + c.DueDate);
+            System.out.println("\nSorry: This copy has already been checked out.....");
+            System.out.println("This copy is due back 0n: " + c.DueDate +"\n");
         }
     }//end check out book
     

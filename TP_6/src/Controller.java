@@ -11,7 +11,7 @@ public class Controller {
     public static ArrayList<Copy> Copies = new ArrayList();
     public static ArrayList<Patron> Patrons= new ArrayList();
     public static Worker Worker;
-    public static Log log;
+    public static ArrayList<Log> logData = new ArrayList();;
 
     public static Copy getCopyById(String id){
         for(Copy c: Copies){
@@ -34,8 +34,11 @@ public class Controller {
     public static void AddBooksAndPatrons() throws FileNotFoundException {
         File patronsFile = new File("patrons.txt");
         File copiesFile = new File("copies.txt");
+        File logFile = new File("log2.txt");
+        
         Scanner patronsScanner = new Scanner(patronsFile);
         Scanner copiesScanner = new Scanner(copiesFile);
+        Scanner logScanner = new Scanner(logFile);
 
         while (patronsScanner.hasNextLine()){
             String line = patronsScanner.nextLine();
@@ -55,6 +58,16 @@ public class Controller {
             String status = splittedLine[3];
             Copy c = new Copy(id, title, barcode, status);
             Copies.add(c);
+        }
+        
+        while (logScanner.hasNextLine()){
+            String line = logScanner.nextLine();
+            String[] splittedLine = line.split("-");
+            String workerId = splittedLine[0];
+            String timeDate = splittedLine[1];
+            String eve = splittedLine[2];
+            Log l = new Log(workerId, timeDate,eve);
+            logData.add(l);
         }
     }
 
@@ -78,6 +91,7 @@ public class Controller {
         }
 
     }
+    
 
     public static void AddCopy(Copy c){
         Copies.add(c);
@@ -127,6 +141,30 @@ public class Controller {
         for(Patron p : Patrons){
             System.out.println("Name:  " + p.getName() + "  Id: " + p.getId());
         }
-    }
-}
+    }//end print patron
+    
+    
+    public static void printLog(){
+
+        for(Log l : logData){
+        	
+            System.out.println("Log: " + l.getWorkerId() + " | " + l.getTimeDate() +" | " + l.getEvent());
+          
+        }
+        
+    }//end print log
+    
+    public static void writeLogData(String wkId, int event){
+    	
+    	String timedate = GetDateDifference.getDate_Time();
+
+    	
+    	Log.writeFile(wkId,timedate,event);
+    	
+    	
+    }//end write log data
+    
+    
+    
+}//end controller
 

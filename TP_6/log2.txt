@@ -1,0 +1,8 @@
+admin-13/12/17 20:06:48-Login into system
+admin-15/12/17 20:38:56-End Session
+admin-15/12/17 20:39:33-End Session
+admin-15/12/17 20:41:07-End Session
+admin-15/12/17 20:44:07-print Log Session
+admin-15/12/17 20:44:24-Show copies
+admin-15/12/17 20:44:37-Show patrons
+admin-15/12/17 20:44:49-print Log Session
