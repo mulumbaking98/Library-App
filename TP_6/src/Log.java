@@ -24,7 +24,8 @@ public class Log {
    }
 
 
-    public static void writeFile(String workerid,String timesDate, int event){
+    public static String writeFile(String workerid,String timesDate, int event){
+    	String re = "";
     	
     	try(FileWriter fw = new FileWriter("log2.txt",true);
     			BufferedWriter bw = new BufferedWriter(fw);
@@ -32,12 +33,13 @@ public class Log {
     		
     		out.println(workerid +"-"+timesDate +"-"+ Event.printEvents(event));
     		
-    		
+    		re = "Data was Succesfully written to folder....";
     	}catch(IOException e){
-    		
+    		re = "Failed to write data";
     	}
     	
 
+    	return re;
        }//end writeFile
 
 	/**

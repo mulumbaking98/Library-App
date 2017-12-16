@@ -51,5 +51,14 @@ public class WorkerTest {
 		worker.setName("win");
 		assertEquals("set worker Name failure", "win", worker.getName());
 	}
+	
+	@Test
+	public void test_worker_get_Date() {
+		worker = new Worker("ad", "admin");
+
+		assertNotNull("set worker Name failure", worker.getDate());
+	}
+	
+
 
 }

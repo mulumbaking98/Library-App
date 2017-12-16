@@ -35,7 +35,6 @@ public class Worker {
     }
 
     public void CheckInBook (Copy c, Patron p){
-//        c.setStatus("IN");
     	
         p.CheckInBook(c);
     }

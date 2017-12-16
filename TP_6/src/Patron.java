@@ -53,13 +53,6 @@ public class Patron {
     	c.setStatus("IN");
     	System.out.println("\nBook Succesfully checked in.......");
     	
-//        int i = 0;
-//        for(Copy copy : BurrowedBooks){
-//            if(c.Id == copy.Id){
-//                BurrowedBooks.remove(i);
-//                c.Status = "IN";
-//            }
-//            i++;
-//        }
+
     }
 }

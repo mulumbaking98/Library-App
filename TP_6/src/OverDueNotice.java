@@ -14,7 +14,7 @@ public class OverDueNotice {
 	private String notice;
 	private String returnDate;
 	private double totalFine;
-	private String dueDate;
+	private static String dueDate;
 	
 	
     /**
@@ -92,7 +92,7 @@ public class OverDueNotice {
 	/**
 	 * @return the dueDate
 	 */
-	public String getDueDate() {
+	public static String getDueDate() {
 		return dueDate;
 	}
 
@@ -101,33 +101,9 @@ public class OverDueNotice {
 	/**
 	 * @param dueDate the dueDate to set
 	 */
-	public void setDueDate(String dueDate) {
-		this.dueDate = dueDate;
+	public static void setDueDate(String dueDate) {
+		dueDate = dueDate;
 	}
 	
-	public double calculateFine(Date returnDate) {
-
-        double totalFine = 0;
-      DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        this.returnDate = df.format(returnDate);
-
-                 Date dueDatee = null;   
-       
-		try {
-            dueDatee = (Date)df.parse(dueDate);
-        } catch (ParseException ex) {
-           
-            ex.printStackTrace();
-        }
-      
-       long days =  GetDateDifference.getTimeDifference(this.dueDate, this.returnDate);
-
-        if(days < 0)   
-            days = 0;
-
-       this.totalFine =  totalFine = days * this.PER_DAY_FINE;
-
-        return totalFine;
-    }
 
 }//end over due

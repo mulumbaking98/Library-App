@@ -145,12 +145,13 @@ public class Controller {
     
     
     public static void printLog(){
-
+       String re = "";
         for(Log l : logData){
         	
-            System.out.println("Log: " + l.getWorkerId() + " | " + l.getTimeDate() +" | " + l.getEvent());
+        	StdOut.println( "Log: " + l.getWorkerId() + " | " + l.getTimeDate() +" | " + l.getEvent());
           
         }
+
         
     }//end print log
     

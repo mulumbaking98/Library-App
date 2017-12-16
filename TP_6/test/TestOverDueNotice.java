@@ -25,6 +25,15 @@ public class TestOverDueNotice {
 		assertEquals("patron id not set", "100", p.getId());
 	}
 	
+	
+	@Test
+	public void test_returnDuen() {
+		 Patron p = new Patron("John", "100");
+		 OverDueNotice.setDueDate("12/12/2017");
+		 
+		 assertEquals(null, OverDueNotice.getDueDate());
+	}
+	
 	@Test
 	public void test_setNotice() {
 		OverDueNotice o = new OverDueNotice();
@@ -46,13 +55,5 @@ public class TestOverDueNotice {
 		assertEquals(0.0, 0.0, o.getTotalFine());
 	}
 	
-//	@Test
-//	public void test_setHFine() {
-//		OverDueNotice o = new OverDueNotice();
-//		Date d = "12/16/2017";
-//
-//		OverDueNotice.calculateFine(d);
-//		assertEquals("copy id not set", "1", c.getId());
-//	}
 
 }

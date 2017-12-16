@@ -54,5 +54,13 @@ public class TestLog {
 		assertEquals("Check book out failed", "Check book out", log.getEvent());
 	}
 	
+//	writeFile(String workerid,String timesDate, int event)
 
+	@Test
+	public void test_L() {
+		log = new Log("adm","23/11/2017","Login");
+		
+	
+		assertNotEquals("Check book out failed", "Check book out", log.writeFile("adm","23/11/2017",2));
+	}
 }//end test

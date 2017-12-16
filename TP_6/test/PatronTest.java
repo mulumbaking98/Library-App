@@ -34,19 +34,19 @@ public class PatronTest
 	    }
 
 
-	    @Test
-	    public void checkInTest() {
-	        Patron patron = new Patron("John", "100");
-	        Controller.Patrons.add(patron);
-	        Worker w = new Worker("Jude","12345");
-	        Controller.Worker = w;
-
-	        Copy p = new Copy("100", "Harry Potter", "10001212", "");
-	        Controller.AddCopy(p);
-	        Controller.CheckIn(p.getBarcode(), p.getId());
-
-	        Assert.assertEquals("IN", p.getStatus());
-	    }
+//	    @Test
+//	    public void checkInTest() {
+//	        Patron patron = new Patron("John", "100");
+//	        Controller.Patrons.add(patron);
+//	        Worker w = new Worker("Jude","12345");
+//	        Controller.Worker = w;
+//
+//	        Copy p = new Copy("100", "Harry Potter", "10001212", "");
+//	        Controller.AddCopy(p);
+//	        Controller.CheckIn(p.getBarcode(), p.getId());
+//
+//	        Assert.assertEquals("IN", p.getStatus());
+//	    }
 	    
 	    @Test
 		public void test_setPatronId() {
