@@ -28,5 +28,12 @@ public class ControllerTest {
 	        assertEquals("Harry Potter", Controller.getCopyById("10001212").getTitle());
 	        assertEquals(null, Controller.getCopyById("1001"));
 	    }
+	   
+	   @Test
+	    public void findWorkerTest() {
+	        Controller.Worker = new Worker("admin2","admin2");
+	        
+	        assertEquals("admin2", Controller.Worker.getId());
+	    }
 
-}
+}//end controller test

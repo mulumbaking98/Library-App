@@ -20,7 +20,7 @@ public class Log {
 
 
 	  // The name of the file to open.
-  String fileName = "log.txt";
+//  String fileName = "log.txt";
 
   // This will reference one line at a time
   String line = null;
