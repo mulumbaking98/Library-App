@@ -10,7 +10,7 @@ import java.util.Date;
 public class OverDueNotice {
 	
 	private static final Double PER_DAY_FINE = 10.0;
-	private Patron patron;
+	static Patron patron;
 	private String notice;
 	private String returnDate;
 	private double totalFine;
@@ -29,8 +29,8 @@ public class OverDueNotice {
 	/**
 	 * @param patron the patron to set
 	 */
-	public void setPatron(Patron patron) {
-		this.patron = patron;
+	public static void setPatron(Patron patron) {
+		patron = patron;
 	}
 
 

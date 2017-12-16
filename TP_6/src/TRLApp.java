@@ -41,7 +41,7 @@ public class TRLApp {
 
     }//end main
     
-    private static void menu(){
+    static void menu(){
 
           	StdOut.println("Choose an option from below");
           	StdOut.println();

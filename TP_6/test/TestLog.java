@@ -39,6 +39,14 @@ public class TestLog {
 	}
 	
 	@Test
+	public void test__Time_Date() {
+		log = new Log("adm","23/11/2017","Login");
+		
+		log.setTimeDate("23/10/2017");
+		assertEquals("set get Date  failed", "23/10/2017", log.getTimeDate());
+	}
+	
+	@Test
 	public void test_event() {
 		log = new Log("adm","23/11/2017","Login");
 		

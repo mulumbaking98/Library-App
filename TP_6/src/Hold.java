@@ -4,7 +4,7 @@
  *
  */
 public class Hold {
-    String Fine;
+    static String Fine;
     Copy Copy;
     Patron Patron;
 
@@ -14,7 +14,7 @@ public class Hold {
         Patron = patron;
     }
 
-    public String getFine() {
+    public static String getFine() {
         return Fine;
     }
 

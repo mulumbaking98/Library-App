@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,5 +37,48 @@ public class ControllerTest {
 	        
 	        assertEquals("admin2", Controller.Worker.getId());
 	    }
+	   
+	   @Test
+	    public void loginWorkerTest() throws FileNotFoundException {
+	        Worker worker = new Worker("admin2","admin2");
+	        boolean lg = Controller.LogInWorker(worker.getName(), worker.getId());
+	        
+	        assertEquals(true, lg);
+	    }
+	   
+	   @Test
+	    public void printCopyTest() {
+		   Copy c = new Copy("100", "Harry Potter", "10001212", "");
+	        Controller.Copies.add (c);
+	        
+	        assertNotNull(Controller.Copies);
+	    }
+	   
+	   @Test
+	    public void printPatronTest() {
+		   Patron p = new Patron("John", "100");
+	        Controller.Patrons.add(p);
+	        
+	        assertNotNull(Controller.Patrons);
+	    }
+	   
+	   @Test
+	    public void printLogTest() {
+		   Log l = new Log("John","12/34/56","log");
+	        Controller.logData.add(l);
+	        
+	        assertNotNull(Controller.logData);
+	    }
+	   
+	   @Test
+	    public void controllerTest() {
+		   Controller c = new Controller();
 
+	        
+	        assertNotNull(c);
+	    }
+
+
+
+	   
 }//end controller test

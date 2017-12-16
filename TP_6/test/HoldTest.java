@@ -27,5 +27,36 @@ public class HoldTest {
         Controller.AddHold("100", p.getBarcode(), patron.getId());
         Controller.ClearHold(p.getBarcode(), patron.getId());
     }
+    
+    @Test
+	public void test_setCopy() {
+    	String fine = "32";
+		Copy c = new Copy("1", "Fun Things", "b1", "OUT");
+		 Patron p = new Patron("John", "100");
+		 
+		 Hold h = new Hold(fine, c, p);
+		h.setCopy(c);
+		assertEquals("copy ID not set", "1", c.getId());
+	}
+    @Test
+	public void test_setPatron() {
+    	String fine = "32";
+		Copy c = new Copy("1", "Fun Things", "b1", "OUT");
+		 Patron p = new Patron("John", "100");
+		 
+		 Hold h = new Hold(fine, c, p);
+		h.setPatron(p);
+		assertNotNull("Patron ID not setJohn", h.getPatron());
+	}
+    @Test
+	public void test_setFine() {
+    	String fine = "32";
+		Copy c = new Copy("1", "Fun Things", "b1", "OUT");
+		 Patron p = new Patron("John", "100");
+		 
+		 Hold h = new Hold(fine, c, p);
+		h.setFine(fine);
+		assertEquals("Fine not set", "32", h.getFine());
+	}
 
 }

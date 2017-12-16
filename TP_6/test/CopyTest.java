@@ -37,6 +37,20 @@ public class CopyTest {
 		assertNotNull("Copy is checked out", c.getStatus());
 	}
 	
+	@Test
+	public void test_barcode() {
+		Copy c = new Copy();
+		c.setBarcode("1");
+		assertEquals("copy barcode not set", "1", c.getBarcode());
+	}
+	
+	@Test
+	public void test_dueDate() {
+		Copy c = new Copy();
+		c.setDueDate("1");
+		assertEquals("copy due Date not set", "1", c.getDueDate());
+	}
+	
 //	@Test
 //	public void test_set_is_checked_out() {
 //		Copy c = new Copy("1", "Fun Things", "b1", "IN");
