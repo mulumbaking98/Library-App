@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,11 +12,12 @@ public class TestTRL {
 	}
 
 	@Test
-	public void testTrl() {
+	public void testTrl() throws FileNotFoundException {
 		TRLApp t = new TRLApp();
 		
 		assertNotNull("Day is null", t);
 		
 	}
+	
 
 }

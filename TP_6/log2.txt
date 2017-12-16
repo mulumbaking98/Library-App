@@ -6,3 +6,25 @@ admin-15/12/17 20:44:07-print Log Session
 admin-15/12/17 20:44:24-Show copies
 admin-15/12/17 20:44:37-Show patrons
 admin-15/12/17 20:44:49-print Log Session
+admin-16/12/17 02:28:28-Check out book
+admin-16/12/17 02:29:38-Check out book
+admin-16/12/17 02:30:28-Show patrons
+admin-16/12/17 02:31:11-Show copies
+admin-16/12/17 02:57:40-End Session
+admin-16/12/17 02:57:58-print Log Session
+admin-16/12/17 03:02:57-Check out book
+admin-16/12/17 03:03:57-Check in book
+admin-16/12/17 03:05:01-Check out book
+admin-16/12/17 03:05:23-Check in book
+admin-16/12/17 03:36:55-Check in book
+admin-16/12/17 03:37:26-Check out book
+admin-16/12/17 03:37:50-Check in book
+admin-16/12/17 03:56:23-Check out book
+admin-16/12/17 03:56:51-Check in book
+admin-16/12/17 03:57:24-Show copies
+admin-16/12/17 04:01:07-Check out book
+admin-16/12/17 04:01:36-Check out book
+admin-16/12/17 04:01:57-Show copies
+admin-16/12/17 04:02:29-Check in book
+admin-16/12/17 04:03:17-Show copies
+admin-16/12/17 04:03:35-print Log Session

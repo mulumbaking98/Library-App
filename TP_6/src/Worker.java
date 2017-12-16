@@ -35,7 +35,8 @@ public class Worker {
     }
 
     public void CheckInBook (Copy c, Patron p){
-        c.setStatus("IN");
+//        c.setStatus("IN");
+    	
         p.CheckInBook(c);
     }
     
@@ -46,7 +47,7 @@ public class Worker {
             p.CheckOutBook(c);
             c.DueDate = getDate();
             System.out.println("Book is successfully checked out to: \n");
-            System.out.println("Patron:  " + p.getName() + "Due date is - " + getDate() +"\n");
+            System.out.println("Patron:  " + p.getName() +"\n" + c.getTitle()+ ":  Due date : " + getDate() +"\n");
         }else{
             System.out.println("\nSorry: This copy has already been checked out.....");
             System.out.println("This copy is due back 0n: " + c.DueDate +"\n");

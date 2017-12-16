@@ -83,7 +83,7 @@ public class Controller {
             }
         }
         if(Worker == null){
-            System.out.println("Login failed. Please enter correct credentials");
+            System.out.println("Login failed. Please enter correct credentials (0 to exit)");
             return false;
         }else{
             System.out.println("Worker successfully logged in");

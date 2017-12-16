@@ -16,33 +16,51 @@ public class TRLApp {
 //     static String[] splittedScannedLine = scannedLine.split(" ");
 	
     public static  void main(String[] args) throws FileNotFoundException {
-        Controller.AddBooksAndPatrons();
-        StdOut.println("Worker log in - Enter username and password of the worker (separated by a space): ");
-        Scanner scanner = new Scanner(System.in);
-        String scannedLine = scanner.nextLine();
-        String[] splittedScannedLine = scannedLine.split(" ");
-        if(Controller.LogInWorker(splittedScannedLine[0], splittedScannedLine[1])){
-            Scanner userInput = new Scanner(System.in);
-//            boolean run = true;
-            while (true){
-                  menu();
-                int choice = userInput.nextInt();
-                Controller.writeLogData(splittedScannedLine[1], choice);
-//                Scanner sc = new Scanner(System.in);
-//                String line = "";
-//                String[] splittedLine;
-                 Switch(choice);
-
-            }//end while
-            
-        }//end if
-
-
-
+    	
+    	new TRLApp();
+    	
+    	
     }//end main
     
-    static void menu(){
+    public TRLApp() throws FileNotFoundException{
+    	
+    	 Controller.AddBooksAndPatrons();
+         boolean flag = true;
+         do{
+         StdOut.println("Worker log in - Enter username and password of the worker (separated by a space): ");
+         Scanner scanner = new Scanner(System.in);
+         String scannedLine = scanner.nextLine();
+         String[] splittedScannedLine = scannedLine.split(" ");
+         
+         
+         if(Controller.LogInWorker(splittedScannedLine[0], splittedScannedLine[1])){
+             Scanner userInput = new Scanner(System.in);
+//             boolean run = true;
+             while (true){
+                   menu();
+                 int choice = userInput.nextInt();
+                 Controller.writeLogData(splittedScannedLine[1], choice);
+//                 Scanner sc = new Scanner(System.in);
+//                 String line = "";
+//                 String[] splittedLine;
+                  Switch(choice);
 
+             }//end while
+             
+         }//end if
+         
+//         if (scannedLine.trim().equalsIgnoreCase("N")){flag = false;}
+         
+         }while(flag);
+  
+    }
+    
+    
+    
+    
+    static void menu(){
+    	
+            subMenu();
           	StdOut.println("Choose an option from below");
           	StdOut.println();
           	StdOut.println("1 - Check in book");
@@ -57,6 +75,12 @@ public class TRLApp {
 
     }//end menu
     
+    private static void subMenu(){
+        StdOut.println("\n\n===================================================================");
+        StdOut.println("\t\tWELCOME TO TEXTBOOK_RENTAL_LIBRARY SYSTEM");
+        StdOut.println("===================================================================\n");
+    }
+    
     private static void Switch(int choice){
     	String line = "";
         String[] splittedLine;
@@ -65,6 +89,7 @@ public class TRLApp {
         
 		switch (choice){
         case 1:
+        	StdOut.println("\nChecking in Book................................................");
         	StdOut.println("Enter barcode of the copy and the patron id (separated by a space): \n");
             line = sc.nextLine();
             splittedLine = line.split(" ");
@@ -72,6 +97,7 @@ public class TRLApp {
             break;
 
         case 2:
+        	StdOut.println("\nChecking out Book................................................");
         	StdOut.println("Enter barcode of the copy and the patron id (separated by a space): \n");
             line = sc.nextLine();
             splittedLine = line.split(" ");
@@ -79,7 +105,7 @@ public class TRLApp {
             break;
 
         case 3:
-
+        	StdOut.println("\nPrinting Over due notices................................................");
         	StdOut.println("Enter Fine, barcode, patron id (separated by a space): \n");
             line = sc.nextLine();
             splittedLine = line.split(" ");
@@ -87,6 +113,7 @@ public class TRLApp {
             break;
 
         case 4:
+        	StdOut.println("\nRemoving book hold...............................................");
         	StdOut.println("Enter barcode of the copy and the patron id (separated by a space): \n");
             line = sc.nextLine();
             splittedLine = line.split(" ");
@@ -94,6 +121,7 @@ public class TRLApp {
             break;
 
         case 5:
+        	StdOut.println("\nPrinting book hold................................................");
         	StdOut.println("Printing over due notice........");
             Controller.PrintOverdue();
             StdOut.println("\n");

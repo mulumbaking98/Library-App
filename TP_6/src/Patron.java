@@ -48,13 +48,18 @@ public class Patron {
     }
 
     public void CheckInBook(Copy c){
-        int i = 0;
-        for(Copy copy : BurrowedBooks){
-            if(c.Id == copy.Id){
-                BurrowedBooks.remove(i);
-                c.Status = "IN";
-            }
-            i++;
-        }
+    	
+    	BurrowedBooks.remove(c);
+    	c.setStatus("IN");
+    	System.out.println("\nBook Succesfully checked in.......");
+    	
+//        int i = 0;
+//        for(Copy copy : BurrowedBooks){
+//            if(c.Id == copy.Id){
+//                BurrowedBooks.remove(i);
+//                c.Status = "IN";
+//            }
+//            i++;
+//        }
     }
 }
