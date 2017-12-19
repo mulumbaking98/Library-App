@@ -7,6 +7,7 @@ When a patron checks out a book, he is given 10 days until he returns the book. 
 
 The log implementation of this program, keeps tabs of all the activities that go on in the program. 
 
+For Code Smells: 
 This program was also unit tested and it has coverage of 76%. The Main method was simplified so the it only calls the it's constructor, since we didn't want it to be having a lot of functionalities inside itself.
 
 The reverse engineered class diagram was created as well as an all test suite, for all the test cases.
