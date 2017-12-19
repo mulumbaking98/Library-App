@@ -17,6 +17,7 @@ public class Worker {
         Name = name;
         Id = id;
     }
+    
 
     public String getName() {
         return Name;
@@ -34,22 +35,33 @@ public class Worker {
         Id = id;
     }
 
-    public void CheckInBook (Copy c, Patron p){
+    public String CheckInBook (Copy c, Patron p){
     	
-        p.CheckInBook(c);
+       return p.CheckInBook(c);
     }
     
 
-    public void CheckOutBook (Copy c, Patron p){
+    public String CheckOutBook (Copy c, Patron p){
+    	String trueC ="";
+    	String falseC ="";
+    	
         if(c.Status.equals("IN")){
             c.Status = "OUT";
             p.CheckOutBook(c);
             c.DueDate = getDate();
-            System.out.println("Book is successfully checked out to: \n");
-            System.out.println("Patron:  " + p.getName() +"\n" + c.getTitle()+ ":  Due date : " + getDate() +"\n");
+            trueC += "Book is successfully checked out to: \n";
+            trueC += "Patron:  " + p.getName() +"\n" + c.getTitle()+ ":  Due date : " + getDate() +"\n";
+            
+            return trueC;
+//            System.out.println("Book is successfully checked out to: \n");
+//            System.out.println("Patron:  " + p.getName() +"\n" + c.getTitle()+ ":  Due date : " + getDate() +"\n");
         }else{
-            System.out.println("\nSorry: This copy has already been checked out.....");
-            System.out.println("This copy is due back 0n: " + c.DueDate +"\n");
+        	falseC = "\nSorry: This copy has already been checked out.....\n";
+        	falseC = "This copy is due back 0n: " + c.DueDate +"\n";
+        	
+        	return falseC;
+//            System.out.println("\nSorry: This copy has already been checked out.....");
+//            System.out.println("This copy is due back 0n: " + c.DueDate +"\n");
         }
     }//end check out book
     

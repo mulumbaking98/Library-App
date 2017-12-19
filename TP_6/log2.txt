@@ -66,3 +66,26 @@ immam-16/12/17 11:33:32-Check in book
 immam-16/12/17 11:34:10-Show patrons
 adm-23/11/2017-Check out book
 adm-23/11/2017-Check out book
+admin-19/12/17 14:49:19-Check out book
+admin-19/12/17 14:49:44-Check in book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+admin-19/12/17 15:06:09-print Log Session
+admin-19/12/17 15:21:56-Show patrons
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+admin-19/12/17 15:25:11-Check out book
+admin-19/12/17 15:25:23-Check in book
+admin-19/12/17 15:25:35-Check in book
+admin-19/12/17 15:32:07-Check out book
+admin-19/12/17 15:32:59-Check in book
+admin-19/12/17 15:39:32-Check out book
+admin-19/12/17 15:39:46-Check in book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book
+adm-23/11/2017-Check out book

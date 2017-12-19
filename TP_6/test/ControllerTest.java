@@ -78,6 +78,15 @@ public class ControllerTest {
 	        assertNotNull(c);
 	    }
 
+	   @Test
+	    public void checkInTest() {
+		    Copy c = new Copy("100", "Harry Potter", "10001212", "");
+		    Patron p = new Patron("John", "100");
+	        Controller.Copies.add (c);
+	        Controller.Patrons.add (p);
+	        assertNotNull(Controller.CheckIn(c.getBarcode(), p.getId()));
+//	        assertNotNull(c);
+	    }
 
 
 	   

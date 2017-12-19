@@ -14,6 +14,7 @@ public class Patron {
         BurrowedBooks = new ArrayList<>();
     }
 
+   
     public String getName() {
         return Name;
     }
@@ -47,11 +48,11 @@ public class Patron {
         }
     }
 
-    public void CheckInBook(Copy c){
+    public String CheckInBook(Copy c){
     	
     	BurrowedBooks.remove(c);
     	c.setStatus("IN");
-    	System.out.println("\nBook Succesfully checked in.......");
+    	return "\nBook Succesfully checked in.......";
     	
 
     }

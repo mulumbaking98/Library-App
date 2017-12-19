@@ -18,5 +18,17 @@ public class TestTRLApp {
 	public void testDt() {
 		assertNotNull(" null", TRLApp.lineD());
 	}
+	
+	@Test
+	public void testsub() {
+		assertNotNull(" null", TRLApp.subMenu());
+	}
+	
+	@Test
+	public void testmenu() {
+		assertNotNull(" null", TRLApp.menu());
+	}
+	
 
+	
 }

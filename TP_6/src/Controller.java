@@ -97,23 +97,23 @@ public class Controller {
         Copies.add(c);
     }
 
-    public static void CheckIn(String copyId, String patronId){
+    public static String CheckIn(String copyId, String patronId){
         Copy c = getCopyById(copyId);
         Patron p = getPatronById(patronId);
         
-        Worker.CheckInBook(c, p);
+       return Worker.CheckInBook(c, p);
     }
 
-    public static void CheckOut(String copyId, String patronId){
+    public static String CheckOut(String copyId, String patronId){
         Copy c = getCopyById(copyId);
         Patron p = getPatronById(patronId);
-        Worker.CheckOutBook(c, p);
+        return Worker.CheckOutBook(c, p);
     }
 
     public static void AddHold(String fine, String copyId, String patronId){
         Copy c = getCopyById(copyId);
         Patron p = getPatronById(patronId);
-        Manager.AddHold(fine, c, p);
+         Manager.AddHold(fine, c, p);
     }
 
     public static void ClearHold(String copyId, String patronId){
@@ -122,6 +122,7 @@ public class Controller {
         Worker.ClearHold(c, p);
         Manager.ClearHold(c, p);
     }
+    
 
     public static void PrintOverdue(){
         Manager.PrintHold();
@@ -131,7 +132,7 @@ public class Controller {
 
         for(Copy c : Copies){
         	
-            System.out.println("Title: " + c.getTitle() + " Barcode:  " + c.getBarcode() + " Status:  " + c.getStatus());
+        	StdOut.println( "Title: " + c.getTitle() + " Barcode:  " + c.getBarcode() + " Status:  " + c.getStatus());
           
         }
 
