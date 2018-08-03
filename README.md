@@ -1,4 +1,4 @@
-# TP_6
+# Library app
 SEIS635 class Library project
 
 This is a book library project. It implements all the features that a general book store has. It implements how the book is checked out to the patron and also how it's checked back in.
